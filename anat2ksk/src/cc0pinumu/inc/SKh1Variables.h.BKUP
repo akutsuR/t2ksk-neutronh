@@ -1,0 +1,84 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cstdlib>
+
+#include "TROOT.h"
+#include "TTree.h"
+#include "TChain.h"
+
+using std::string;
+using std::vector;
+using std::cout;
+using std::endl;
+
+class SKh1Variables
+{
+	public :
+		SKh1Variables();
+		virtual ~SKh1Variables(){};
+
+		void	resisterVariable(string);
+		void	setBranches(TTree*);
+
+		void	resisterDefaultDST();
+		void	resisterDefaultT2KREDUC();
+		void	resisterDefaultfiTQun();
+		void	resisterDefaultVECT();
+		void	resisterDefaultNEWORK();
+		void	resisterDefaultVCWORK();
+		void	resisterDefaultCONVVECT();
+
+		int		operator()(string) const;	
+		int		operator()(string, int) const;	
+		float	operator()(string, bool dum="false") const;	
+		float	operator()(string, int, bool dum="false") const;	
+		float	operator()(string, int, int, bool dum="false") const;	
+		float	operator()(string, int, int, int, bool dum="false") const;	
+
+	private :
+		void printError(string) const;
+
+		vector<string> fVarList;
+
+		//<DST>
+		Int_t		fnhitac;	
+		
+		//<T2KReduc>
+		Int_t		fevclass;
+		
+		//<fiTQun>
+		Int_t		ffqmrnring[32];
+		Float_t		ffq1rmom[10][7];
+		Float_t		ffq1rpos[10][7][3];
+		Float_t		ffq1rdir[10][7][3];
+		Float_t		ffq1rnll[10][7];
+		Int_t		ffqnse;
+		
+		//<VECT>
+		Int_t		fnpar;
+		Float_t		fpmomv[50];
+		Int_t		fipv[50];
+		Float_t		fposv[3];
+		Float_t		fwallv;
+		
+		//<NEWORK>
+		Int_t		fmode;
+		Int_t 		fnumnu;
+		Int_t		fipnu[50];
+		Float_t		fpnu[50];
+		
+		// <VCWORK>
+		Int_t		fNpvc;
+		Int_t		fIpvc[100];
+		Int_t		fIchvc[100];
+		Float_t		fAbspvc[50];
+		
+		// <CONVVECT>
+		Int_t		fnscndprt;
+		Int_t		fiprtscnd[500];
+		Int_t		fiprntprt[500];
+		Int_t		flmecscnd[500];
+		Float_t		fvtxscnd[500][3];
+		Float_t		ftscnd[500];
+};

@@ -1,0 +1,61 @@
+\documentclass[slide,11px,aspectratio=169]{beamer}
+\usecolortheme{seagull}
+\usepackage{graphicx,color}
+\usepackage{url}
+\usepackage{bm}
+\usepackage{multirow}
+
+\setbeamertemplate{items}[circle]
+\setbeamersize{text margin left=1mm,text margin right=4mm}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{\raisebox{5pt}{\makebox[\paperwidth]{\hfill\makebox[20pt]{\large\insertframenumber}}}}
+\setbeamerfont{page number in head/foot}{family=\ttfamily,size=\LARGE}
+
+\setbeamertemplate{items}[circle]
+\setbeamersize{text margin left=1mm,text margin right=4mm}
+
+\newcommand{\enu}{$N_{1\mu}$}
+\newcommand{\ntag}{$N_{tag}$}
+\newcommand{\pt}{$P_{t}$}
+\newcommand{\eff}{$\varepsilon$}
+\newcommand{\bkg}{$b\times N_{1\mu}$}
+\newcommand{\mnm}{$\bar{M}$}
+\newcommand{\dmnmstat}{$\delta \bar{M}_{stat.}$(\%)}
+\newcommand{\dmnmsyst}{$\delta \bar{M}_{syst.}$(\%)}
+\newcommand{\dmnmtot}{$\delta \bar{M}_{tot.}$(\%)}
+\newcommand{\ptfrst}{$0.00<$\pt$<0.25$}
+\newcommand{\ptscnd}{$0.25<$\pt$<0.50$}
+\newcommand{\ptthrd}{$0.50<$\pt$<0.75$}
+\newcommand{\ptfrth}{\pt$\geq0.75$}
+\newcommand{\ptall}{All \pt}
+
+\newcommand{\expfhctrmomi}{1.22 $\pm$0.02}
+\newcommand{\obsfhctrmomi}{0.62 $\pm$ 0.25 $^{+0.04}_{-0.06}$}
+\newcommand{\expfhctrmomii}{1.33 $\pm$0.02}
+\newcommand{\obsfhctrmomii}{0.95 $\pm$ 0.23 $^{+0.08}_{-0.09}$}
+\newcommand{\expfhctrmomiii}{1.77 $\pm$0.04}
+\newcommand{\obsfhctrmomiii}{1.16 $\pm$ 0.40 $^{+0.11}_{-0.10}$}
+\newcommand{\expfhctrmomiv}{2.75 $\pm$0.12}
+\newcommand{\obsfhctrmomiv}{2.77 $\pm$ 1.17 $^{+0.20}_{-0.24}$}
+\newcommand{\expfhcavetrmom}{1.50 $\pm$0.02}
+\newcommand{\obsfhcavetrmom}{1.00 $\pm$ 0.17 $^{+0.07}_{-0.08}$}
+
+\newcommand{\exprhctrmomi}{1.76 $\pm$0.02}
+\newcommand{\obsrhctrmomi}{0.78 $\pm$ 0.33 $^{+0.05}_{-0.06}$}
+\newcommand{\exprhctrmomii}{2.05 $\pm$0.02}
+\newcommand{\obsrhctrmomii}{1.50 $\pm$ 0.41 $^{+0.11}_{-0.13}$}
+\newcommand{\exprhctrmomiii}{2.36 $\pm$0.03}
+\newcommand{\obsrhctrmomiii}{1.78 $\pm$ 0.66 $^{+0.15}_{-0.18}$}
+\newcommand{\exprhctrmomiv}{3.41 $\pm$0.08}
+\newcommand{\obsrhctrmomiv}{3.93 $\pm$ 2.32 $^{+0.51}_{-0.36}$}
+\newcommand{\exprhcavetrmom}{2.14 $\pm$0.02}
+\newcommand{\obsrhcavetrmom}{1.40 $\pm$ 0.26 $^{+0.10}_{-0.11}$}
+
+
+\newcommand{\tcblk}{\textcolor{black}}
+\newcommand{\tcb}{\textcolor{blue}}
+\newcommand{\tcr}{\textcolor{red}}
+\newcommand{\thco}{\color[HTML]{F37E09}}
+\newcommand{\thcg}{\color[HTML]{31B404}}
+\newcommand{\tcg}{\textcolor{green}}
+\newcommand{\tcm}{\textcolor{magenta}}
