@@ -41,54 +41,56 @@ bool CC0PiNumu::applyfQ1RCC0PiNumuCut()
 	for(int i=0; i<N_EVE_SLC; i++){ fSelec[i]=false; }
 
 	// FCFV
-		if( fh1v->var<int>("nhitac")<16		&&
-			fh1v->var<int>("evclass")==1	&&
-			fmuv->var<float>("fqevis")>30 	&&
-			fmuv->var<float>("fqdwall")>200	)
-		{
-			fSelec[eFCFVDW200]	=true;
-		}	
-		else{ return false; }
+	if( fh1v->var<int>("nhitac")<16		&&
+		fh1v->var<int>("evclass")==1	&&
+		fmuv->var<float>("fqevis")>30 	&&
+		fmuv->var<float>("fqdwall")>200	)
+	{
+		fSelec[eFCFVDW200]	=true;
+	}	
 
 	// 1R
-		if( fh1v->var<int>("fqmrnring",0)==1 )
-		{
-			fSelec[eNRING_EQ_1]	=true;
-		}
-		else{ return false; }
+	if( fh1v->var<int>("fqmrnring",0)==1 )
+	{
+		fSelec[eNRING_EQ_1]	=true;
+	}
 
 	// 1R e/mu PID -> mu-like
-		if( fmuv->var<float>("pidemu")>0.0 )
-		{
-			fSelec[eEMUPID_MU]	=true;
-		}
-		else{ return false; }
+	if( fmuv->var<float>("pidemu")>0.0 )
+	{
+		fSelec[eEMUPID_MU]	=true;
+	}
 
 	// Pmu>200(MeV)
-		if( fmuv->var<float>("fqmomm")>200.0 )
-		{
-			fSelec[eMUMOM_GE_200]	=true;
-		}
-		else{ return false; }
+	if( fmuv->var<float>("fqmomm")>200.0 )
+	{
+		fSelec[eMUMOM_GE_200]	=true;
+	}
 
 	// 	Decay-e <=1
-		if( fmuv->var<int>("fqdcye")<=1 )
-		{
-			fSelec[eDCYE_LE_1]		=true;
-		}
-		else{ return false; }
+	if( fmuv->var<int>("fqdcye")<=1 )
+	{
+		fSelec[eDCYE_LE_1]		=true;
+	}
 
 	// 1R charged pi/mu -> mu-like
-		if( fmuv->var<float>("pidcpimu")<0.0 &&
-			fmuv->var<float>("erec")>0.0 )
-		{
-			fSelec[eCPIMUPID_MU]	=true;
-		}
-		else{ return false; }
+	if( fmuv->var<float>("pidcpimu")<0.0 &&
+		fmuv->var<float>("erec")>0.0 )
+	{
+		fSelec[eCPIMUPID_MU]	=true;
+	}
 
 	// This is fQ 1R CC0pi numu event!
-	// (* FV := dwall>200cm only)
-	return true;
+    bool pass_1rmu_selec = true;
+	for(int i=0; i<N_EVE_SLC; i++)
+    {
+        if( !fSelec[i] )
+        {
+            pass_1rmu_selec = false;
+            break;
+        }
+    }
+	return pass_1rmu_selec;
 }
 
 bool CC0PiNumu::applyfQ1RCC0PiNumuCutExceptForFV()
